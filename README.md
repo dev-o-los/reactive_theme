@@ -12,6 +12,8 @@ this package.
 
 <img src="https://github.com/dev-o-los/reactive_theme/blob/main/gifs/reactive_theme_example.gif">
 
+You need not to worry about preserving the theme using [shared_preferences](https://pub.dev/packages/shared_preferences) as it already preserves the theme state of the app automatically using `shared_preferences` package.😎
+
 ## Install it
 
 You can install simple_sizer using the below command:
