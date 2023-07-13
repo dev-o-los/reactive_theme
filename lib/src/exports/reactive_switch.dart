@@ -6,8 +6,8 @@ class ReactiveSwitch extends StatefulWidget {
     Key? key,
     this.darkmodeIcon = const Icon(Icons.dark_mode),
     this.lightModeIcon = const Icon(Icons.sunny),
-    this.activeCol = Colors.black12,
-    this.inactiveIconColor = Colors.white,
+    this.activeCol = Colors.grey,
+    this.inactiveIconColor = Colors.black87,
   }) : super(key: key);
 
   final Icon? darkmodeIcon;
@@ -36,7 +36,7 @@ class _ReactiveSwitchState extends State<ReactiveSwitch> {
     return Switch.adaptive(
       activeColor: widget.activeCol,
       inactiveThumbColor: widget.inactiveIconColor,
-      thumbIcon: !value
+      thumbIcon: value
           ? MaterialStateProperty.all(widget.darkmodeIcon)
           : MaterialStateProperty.all(widget.lightModeIcon),
       value: value,
