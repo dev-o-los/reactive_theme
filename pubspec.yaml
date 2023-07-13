@@ -1,6 +1,6 @@
 name: reactive_theme
 description: A simple pkg that changes thememode and persists it.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/dev-o-los/reactive_theme
 
 environment:
