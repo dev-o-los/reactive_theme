@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 extension ReactiveThemeExt on MaterialApp {
+  /// The function returns a MaterialApp widget with customizable theme settings.
+  ///
+  /// Args:
+  ///   themeMode (ThemeMode): The mode of the theme to be applied to the app. It can be set to
+  /// ThemeMode.system, ThemeMode.light, or ThemeMode.dark. If not provided, the default value will be
+  /// used.
   MaterialApp themeChanger({ThemeMode? themeMode}) => MaterialApp(
         themeMode: themeMode ?? this.themeMode,
         actions: actions,

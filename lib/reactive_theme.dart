@@ -1,3 +1,4 @@
+/// The code is defining a Dart library called "reactive_theme".
 library reactive_theme;
 
 export 'src/exports/reactive_themer.dart';
