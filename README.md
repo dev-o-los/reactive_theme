@@ -12,8 +12,6 @@ this package.
 
 <img src="https://github.com/dev-o-los/reactive_theme/raw/main/gifs/reactive_theme_example.gif" width=400>
 
-<img src="https://github.com/dev-o-los/reactive_theme/raw/pre-release/gifs/reactive_switch_example.gif" width=400>
-
 You need not to worry about preserving the theme using [shared_preferences](https://pub.dev/packages/shared_preferences) as it already preserves the theme state of the app automatically using `shared_preferences` package.😎
 
 ## Install it
@@ -83,6 +81,8 @@ It takes widget as a parameter so you can create anything you want from this con
 ## ReactiveSwitch
 
 A simple adpative switch for toggling thememode
+
+<img src="https://github.com/dev-o-los/reactive_theme/raw/pre-release/gifs/reactive_switch_example.gif" width=400>
 
 | Parameters        | Description                                           |
 | ----------------- | ----------------------------------------------------- |
