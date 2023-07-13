@@ -8,7 +8,7 @@ extension ReactiveThemeExt on MaterialApp {
   /// ThemeMode.system, ThemeMode.light, or ThemeMode.dark. If not provided, the default value will be
   /// used.
   MaterialApp themeChanger({ThemeMode? themeMode}) => MaterialApp(
-        themeMode: themeMode ?? this.themeMode,
+        themeMode: themeMode ?? ThemeMode.system,
         actions: actions,
         builder: builder,
         checkerboardOffscreenLayers: checkerboardOffscreenLayers,

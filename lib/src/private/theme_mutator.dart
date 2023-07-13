@@ -53,7 +53,7 @@ class StateChangerForThemeMutatorState
     /// based on the stored value in the `SharedPreferences` or the platform's brightness.
     setState(() {
       isDarkMode = prefs.getBool(_key) ??
-          MediaQuery.of(context).platformBrightness == Brightness.dark;
+          Theme.of(context).brightness == Brightness.dark;
     });
   }
 
@@ -104,7 +104,7 @@ class StateChangerForThemeMutatorState
       /// ThemeMode.dark),` is calling the `themeChanger` method on the `child` property of the
       /// `StateChangerForThemeMutator` widget.
       child: widget.child.themeChanger(
-        themeMode: isDarkMode ? ThemeMode.light : ThemeMode.dark,
+        themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
       ),
     );
   }

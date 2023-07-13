@@ -10,7 +10,7 @@ Supports Android, iOS, Web, Mac, Linux and Windows.
 You can easily toogle between light mode and dark mode using the `ReactiveThemeBtn` provided by
 this package.
 
-<img src="https://github.com/dev-o-los/reactive_theme/raw/main/gifs/reactive_theme_example.gif">
+<img src="https://github.com/dev-o-los/reactive_theme/raw/main/gifs/reactive_theme_example.gif" width=400>
 
 You need not to worry about preserving the theme using [shared_preferences](https://pub.dev/packages/shared_preferences) as it already preserves the theme state of the app automatically using `shared_preferences` package.😎
 
@@ -39,45 +39,54 @@ Wrap the `MaterialApp` widget with `ReactiveThemer` and nothing else.
 `ReactiveThemer` must be the topmost widget in the widget tree
 
 ```dart
-  ReactiveThemer(
-      child: MaterialApp(
-        title: 'Reactive Theme Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              brightness: Brightness.light, seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        darkTheme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              brightness: Brightness.dark, seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const HomePage(),
-      ),
-   );
+ReactiveThemer(
+  child: MaterialApp(
+    title: 'Reactive Theme Demo',
+    theme: ThemeData(
+      colorScheme: ColorScheme.fromSeed(
+          brightness: Brightness.light, seedColor: Colors.deepPurple),
+      useMaterial3: true,
+    ),
+    darkTheme: ThemeData(
+      colorScheme: ColorScheme.fromSeed(
+          brightness: Brightness.dark, seedColor: Colors.deepPurple),
+      useMaterial3: true,
+    ),
+    home: const HomePage(),
+  ),
+);
 ```
 
 Now you change toggle between dark and light mode easily from anywhere by using
-`ReactiveThemeBtn` Widget
+`ReactiveThemeBtn` or `ReactiveSwitch` Widget.
 
-```dart
-  ReactiveThemeBtn()
-```
+## ReactiveThemeBtn
 
-`reactive_theme` has two more named constructors you can use if you don't like the default
-`ReactiveThemeBtn`, they are --
+ReactiveThemeBtn has one simple and two named constructors , they are -
 
-```dart
-  //Helps you modify the original button
-  ReactiveThemeBtn.editable()
-```
+- `ReactiveThemeBtn.editable()`
 
-and
+| Parameters     | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| bgColWhenLg    | sets the background color of the btn when in light mode      |
+| bgColWhendk    | sets the background color of the btn when in dark mode       |
+| iconColWhendk  | sets the icon color of the btn when in dark mode             |
+| iconColWhenLg  | sets the icon color of the btn when in light mode            |
+| transitionType | sets the transition animation for btn , rotation , scale etc |
 
-```dart
-  //Create your own button
-  //It takes widget as a parameter
-  //So , you can make anything you want to
-  //like a switcher , floating action button etc...
-  ReactiveThemeBtn.fromScratch()
-```
+- `ReactiveThemeBtn.fromScratch()`
+
+It takes widget as a parameter so you can create anything you want from this constructor
+
+## ReactiveSwitch
+
+A simple adpative switch for toggling thememode
+
+<img src="https://github.com/dev-o-los/reactive_theme/raw/pre-release/gifs/reactive_switch_example.gif" width=400>
+
+| Parameters        | Description                                           |
+| ----------------- | ----------------------------------------------------- |
+| darkmodeIcon      | sets icon for switch when in dark mode                |
+| lightModeIcon     | sets icon for switch when in dark mode                |
+| activeCol         | The color to use when this switch is on               |
+| inactiveIconColor | The color to use on the thumb when this switch is off |
