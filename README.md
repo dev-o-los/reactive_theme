@@ -32,7 +32,7 @@ import 'package:reactive_theme/reactive_theme.dart';
 
 Wrap the `MaterialApp` widget with `ReactiveThemer` and nothing else.
 
-<span style="color: green"> Some green text </span>
+⚠️ [Important]
 
 `ReactiveThemer` must be the topmost widget in the widget tree
 
