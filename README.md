@@ -64,7 +64,7 @@ Now you change toggle between dark and light mode easily from anywhere by using
   ReactiveThemeBtn()
 ```
 
-Thre are two more named constructors you can use if you don't like the default
+`reactive_theme` has two more named constructors you can use if you don't like the default
 `ReactiveThemeBtn`, they are --
 
 ```dart
