@@ -10,7 +10,7 @@ Supports Android, iOS, Web, Mac, Linux and Windows.
 You can easily toogle between light mode and dark mode using the `ReactiveThemeBtn` provided by
 this package.
 
-<img src=>
+<img src="https://github.com/dev-o-los/reactive_theme/blob/main/gifs/reactive_theme_example.gif">
 
 ## Install it
 
