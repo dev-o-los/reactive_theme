@@ -10,7 +10,9 @@ Supports Android, iOS, Web, Mac, Linux and Windows.
 You can easily toogle between light mode and dark mode using the `ReactiveThemeBtn` provided by
 this package.
 
-<img src="https://github.com/dev-o-los/reactive_theme/raw/main/gifs/reactive_theme_example.gif">
+<img src="https://github.com/dev-o-los/reactive_theme/raw/main/gifs/reactive_theme_example.gif" width=200>
+
+<img src="https://github.com/dev-o-los/reactive_theme/raw/main/gifs/reactive_theme_example.gif" width=200>
 
 You need not to worry about preserving the theme using [shared_preferences](https://pub.dev/packages/shared_preferences) as it already preserves the theme state of the app automatically using `shared_preferences` package.😎
 
