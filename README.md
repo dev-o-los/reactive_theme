@@ -60,26 +60,20 @@ ReactiveThemer(
 Now you change toggle between dark and light mode easily from anywhere by using
 `ReactiveThemeBtn` or `ReactiveSwitch` Widget.
 
-```dart
-ReactiveThemeBtn()
-//------------ or -------------
-ReactiveSwitch()
-```
+# ReactiveThemeBtn
 
-`reactive_theme` has two more named constructors you can use if you don't like the default
-`ReactiveThemeBtn`, they are --
+ReactiveThemeBtn has one simple and two named constructors , they are -
 
-```dart
-//Helps you modify the original button
-ReactiveThemeBtn.editable()
-```
+- `ReactiveThemeBtn.editable()`
 
-and
+| Parameters     | Description                                                  |
+| -------------- | ------------------------------------------------------------ |
+| bgColWhenLg    | sets the background color of the btn when in light mode      |
+| bgColWhendk    | sets the background color of the btn when in dark mode       |
+| iconColWhendk  | sets the icon color of the btn when in dark mode             |
+| iconColWhenLg  | sets the icon color of the btn when in light mode            |
+| transitionType | sets the transition animation for btn , rotation , scale etc |
 
-```dart
-//Create your own button
-//It takes widget as a parameter
-//So , you can make anything you want to
-//like a switcher , floating action button etc...
-ReactiveThemeBtn.fromScratch()
-```
+- `ReactiveThemeBtn.fromScratch()`
+
+It takes widget as a parameter so you can create anything you want from this constructor
