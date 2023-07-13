@@ -60,20 +60,31 @@ ReactiveThemer(
 Now you change toggle between dark and light mode easily from anywhere by using
 `ReactiveThemeBtn` or `ReactiveSwitch` Widget.
 
-# ReactiveThemeBtn
+## ReactiveThemeBtn
 
 ReactiveThemeBtn has one simple and two named constructors , they are -
 
 - `ReactiveThemeBtn.editable()`
 
-| Parameters     | Description                                                  |
-| -------------- | ------------------------------------------------------------ |
-| bgColWhenLg    | sets the background color of the btn when in light mode      |
-| bgColWhendk    | sets the background color of the btn when in dark mode       |
-| iconColWhendk  | sets the icon color of the btn when in dark mode             |
-| iconColWhenLg  | sets the icon color of the btn when in light mode            |
-| transitionType | sets the transition animation for btn , rotation , scale etc |
+  | Parameters     | Description                                                  |
+  | -------------- | ------------------------------------------------------------ |
+  | bgColWhenLg    | sets the background color of the btn when in light mode      |
+  | bgColWhendk    | sets the background color of the btn when in dark mode       |
+  | iconColWhendk  | sets the icon color of the btn when in dark mode             |
+  | iconColWhenLg  | sets the icon color of the btn when in light mode            |
+  | transitionType | sets the transition animation for btn , rotation , scale etc |
 
 - `ReactiveThemeBtn.fromScratch()`
 
 It takes widget as a parameter so you can create anything you want from this constructor
+
+## ReactiveSwitch
+
+A simple adpative switch for toggling thememode
+
+| Parameters        | Description                                           |
+| ----------------- | ----------------------------------------------------- |
+| darkmodeIcon      | sets icon for switch when in dark mode                |
+| lightModeIcon     | sets icon for switch when in dark mode                |
+| activeCol         | The color to use when this switch is on               |
+| inactiveIconColor | The color to use on the thumb when this switch is off |
