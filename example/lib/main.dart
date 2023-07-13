@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ReactiveThemer(
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Reactive Theme Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(

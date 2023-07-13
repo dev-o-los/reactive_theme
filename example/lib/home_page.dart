@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: ReactiveThemeBtn.editable()),
+      body: Center(child: ReactiveThemeBtn()),
     );
   }
 }
