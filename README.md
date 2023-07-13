@@ -31,7 +31,12 @@ import 'package:reactive_theme/reactive_theme.dart';
 ## Usage
 
 Wrap the `MaterialApp` widget with `ReactiveThemer` and nothing else.
-!Important! `ReactiveThemer` must be the topmost widget in the widget tree
+
+```diff
+  - Important
+```
+
+`ReactiveThemer` must be the topmost widget in the widget tree
 
 ```dart
   ReactiveThemer(

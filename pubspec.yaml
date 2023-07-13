@@ -1,7 +1,7 @@
 name: reactive_theme
 description: A simple pkg that changes theme and persists it.
 version: 1.0.0
-homepage:
+homepage: https://github.com/dev-o-los/reactive_theme
 
 environment:
   sdk: ">=3.0.5 <4.0.0"
