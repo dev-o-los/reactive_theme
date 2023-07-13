@@ -16,7 +16,7 @@ You need not to worry about preserving the theme using [shared_preferences](http
 
 ## Install it
 
-You can install simple_sizer using the below command:
+You can install reactive_theme using the below command:
 
 ```css
  $ flutter pub add reactive_theme
