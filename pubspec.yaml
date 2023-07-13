@@ -1,5 +1,5 @@
 name: reactive_theme
-description: A simple pkg that changes theme and persists it.
+description: A simple pkg that changes thememode and persists it.
 version: 1.0.0
 homepage: https://github.com/dev-o-los/reactive_theme
 
