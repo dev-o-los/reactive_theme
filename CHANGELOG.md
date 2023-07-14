@@ -1,3 +1,8 @@
+## 1.1.1 [14-07-2023]
+
+- readme.md updated
+- bug fixes
+
 ## 1.1.0 [13-07-2023]
 
 - New ReactiveSwitch added

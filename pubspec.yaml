@@ -1,6 +1,6 @@
 name: reactive_theme
 description: A simple pkg that toggles between light , dark mode and persists it.
-version: 1.1.0
+version: 1.1.1
 homepage: https://github.com/dev-o-los/reactive_theme
 
 environment:
