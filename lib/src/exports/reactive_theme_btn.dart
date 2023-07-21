@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reactive_theme/src/private/constants/constants.dart';
+import 'package:reactive_theme/src/private/helper.dart';
 import 'package:reactive_theme/src/private/theme_mutator.dart';
 
 class ReactiveThemeBtn extends StatelessWidget {
@@ -170,20 +171,10 @@ class ReactiveThemeBtn extends StatelessWidget {
         onTap: () => thememutator.toggleStatus(),
       );
     } else {
-      (bool isdarkmode, bool reverse) bgcol() =>
-          (thememutator.isDarkMode, reverse!);
-
-      Color iconcol = switch (bgcol()) {
-        (true, true) => Colors.white,
-        (false, false) => Colors.white,
-        (true, false) => Colors.black,
-        (false, true) => Colors.black,
-      };
-
       return GestureDetector(
         child: Container(
           decoration: BoxDecoration(
-            color: iconcol,
+            color: Helper.bgiconcol(thememutator.isDarkMode, reverse!),
             shape: BoxShape.circle,
           ),
           padding: const EdgeInsets.all(10.0),
