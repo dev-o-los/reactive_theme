@@ -7,7 +7,7 @@ Supports Android, iOS, Web, Mac, Linux and Windows.
 
 ## What it can do
 
-You can easily toogle between light mode and dark mode using the `ReactiveThemeBtn` provided by
+You can easily toogle between light mode and dark mode using the `ReactiveThemeBtn` or `ReactiveSwitch` provided by
 this package.
 
 <img src="https://github.com/dev-o-los/reactive_theme/raw/main/gifs/reactive_theme_example.gif" width=400>
@@ -61,6 +61,16 @@ ReactiveThemer(
     home: const HomePage(),
   ),
 );
+```
+
+## ReactiveMode
+
+You can check whether your ui is in darkmode or lightmode using the `isDarkMode` function which returns you a bool.
+Simply Call
+
+```dart
+// Returns a boolean value
+ReactiveMode.isDarkMode(context);
 ```
 
 Now you change toggle between dark and light mode easily from anywhere by using
