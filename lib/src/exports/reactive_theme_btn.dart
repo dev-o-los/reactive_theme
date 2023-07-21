@@ -15,7 +15,9 @@ class ReactiveThemeBtn extends StatelessWidget {
         bgColWhendk = null,
         iconColWhenLg = null,
         iconColWhendk = null,
-        child = null;
+        child = null,
+        lightmodeIcon = null,
+        darkmodeIcon = null;
 
   /// The `ReactiveThemeBtn.editable()` constructor is defining a named constructor within the
   /// `ReactiveThemeBtn` class. This constructor allows you to create an instance of `ReactiveThemeBtn`
@@ -26,6 +28,8 @@ class ReactiveThemeBtn extends StatelessWidget {
     this.bgColWhendk = Colors.black87,
     this.iconColWhendk = Colors.white,
     this.iconColWhenLg = Colors.black87,
+    this.darkmodeIcon = Icons.dark_mode,
+    this.lightmodeIcon = Icons.sunny,
     this.transitionType,
     this.reverse = false,
   })  : _type = 'editable',
@@ -42,7 +46,9 @@ class ReactiveThemeBtn extends StatelessWidget {
         iconColWhenLg = null,
         iconColWhendk = null,
         transitionType = null,
-        reverse = null;
+        reverse = null,
+        lightmodeIcon = null,
+        darkmodeIcon = null;
 
   /// The `String _type;` is declaring a private variable `_type` of type `String` in the
   /// `ReactiveThemeBtn` class. This variable is used to determine the type of button being
@@ -95,6 +101,9 @@ class ReactiveThemeBtn extends StatelessWidget {
   ///The `reverse` parameter is used to change to icon of the button
   ///if set to `true` the light mode icon and dark mode icon will be reversed.
   final bool? reverse;
+
+  final IconData? darkmodeIcon;
+  final IconData? lightmodeIcon;
 
   /// This function builds a widget based on the type provided, allowing the user to toggle between dark
   /// and light mode.
@@ -154,11 +163,11 @@ class ReactiveThemeBtn extends StatelessWidget {
             /// `AnimatedSwitcher` based on the value of `thememutator.isDarkMode`.
             child: thememutator.isDarkMode
                 ? Icon(
-                    reverse! ? Icons.sunny : Icons.dark_mode,
+                    reverse! ? lightmodeIcon : darkmodeIcon,
                     key: UniqueKey(),
                   )
                 : Icon(
-                    reverse! ? Icons.dark_mode : Icons.sunny,
+                    reverse! ? darkmodeIcon : lightmodeIcon,
                     key: UniqueKey(),
                   ),
           ),
