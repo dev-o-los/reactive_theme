@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reactive_theme/src/private/constants/constants.dart';
 import 'package:reactive_theme/src/private/theme_mutator.dart';
 
 class ReactiveThemeBtn extends StatelessWidget {
@@ -7,6 +8,7 @@ class ReactiveThemeBtn extends StatelessWidget {
   const ReactiveThemeBtn({
     super.key,
     this.transitionType,
+    this.reverse = false,
   })  : _type = '',
         bgColWhenLg = null,
         bgColWhendk = null,
@@ -24,6 +26,7 @@ class ReactiveThemeBtn extends StatelessWidget {
     this.iconColWhendk = Colors.white,
     this.iconColWhenLg = Colors.black87,
     this.transitionType,
+    this.reverse = false,
   })  : _type = 'editable',
         child = null;
 
@@ -37,7 +40,8 @@ class ReactiveThemeBtn extends StatelessWidget {
         bgColWhendk = null,
         iconColWhenLg = null,
         iconColWhendk = null,
-        transitionType = null;
+        transitionType = null,
+        reverse = null;
 
   /// The `String _type;` is declaring a private variable `_type` of type `String` in the
   /// `ReactiveThemeBtn` class. This variable is used to determine the type of button being
@@ -86,6 +90,8 @@ class ReactiveThemeBtn extends StatelessWidget {
   /// widget is provided, it will be rendered inside the `GestureDetector` widget in the `build` method.
   /// If no child widget is provided, an empty container will be rendered instead.
   final Widget? child;
+
+  final bool? reverse;
 
   /// This function builds a widget based on the type provided, allowing the user to toggle between dark
   /// and light mode.
@@ -145,11 +151,11 @@ class ReactiveThemeBtn extends StatelessWidget {
             /// `AnimatedSwitcher` based on the value of `thememutator.isDarkMode`.
             child: thememutator.isDarkMode
                 ? Icon(
-                    Icons.dark_mode_outlined,
+                    reverse! ? Icons.sunny : Icons.dark_mode,
                     key: UniqueKey(),
                   )
                 : Icon(
-                    Icons.sunny,
+                    reverse! ? Icons.dark_mode : Icons.sunny,
                     key: UniqueKey(),
                   ),
           ),
@@ -164,10 +170,20 @@ class ReactiveThemeBtn extends StatelessWidget {
         onTap: () => thememutator.toggleStatus(),
       );
     } else {
+      (bool isdarkmode, bool reverse) bgcol() =>
+          (thememutator.isDarkMode, reverse!);
+
+      Color iconcol = switch (bgcol()) {
+        (true, true) => Colors.white,
+        (false, false) => Colors.white,
+        (true, false) => Colors.black,
+        (false, true) => Colors.black,
+      };
+
       return GestureDetector(
         child: Container(
           decoration: BoxDecoration(
-            color: thememutator.isDarkMode ? Colors.black87 : Colors.white,
+            color: iconcol,
             shape: BoxShape.circle,
           ),
           padding: const EdgeInsets.all(10.0),
@@ -184,13 +200,13 @@ class ReactiveThemeBtn extends StatelessWidget {
             /// widget based on the value of `thememutator.isDarkMode`.
             child: thememutator.isDarkMode
                 ? Image.asset(
-                    'assets/moon-fill.png',
-                    package: 'reactive_theme',
+                    reverse! ? sunImg : moonImg,
+                    package: pkgname,
                     key: UniqueKey(),
                   )
                 : Image.asset(
-                    'assets/sun-fill.png',
-                    package: 'reactive_theme',
+                    reverse! ? moonImg : sunImg,
+                    package: pkgname,
                     key: UniqueKey(),
                   ),
           ),
