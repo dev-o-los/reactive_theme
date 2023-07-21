@@ -84,7 +84,7 @@ class ReactiveThemeBtn extends StatelessWidget {
   final Widget Function(Widget child, Animation<double> animation)?
       transitionType;
 
-  /// The line `final Widget? child;` is declaring a final variable `child` of type `Widget?`. The
+  /// The line `Widget? child;` is declaring a final variable `child` of type `Widget?`. The
   /// `Widget?` type indicates that the variable can either hold a valid `Widget` value or be null. This
   /// variable is used to store the child widget that will be displayed inside the `ReactiveThemeBtn`
   /// widget when it is created using the `ReactiveThemeBtn.fromScratch()` constructor. If a child
@@ -92,6 +92,8 @@ class ReactiveThemeBtn extends StatelessWidget {
   /// If no child widget is provided, an empty container will be rendered instead.
   final Widget? child;
 
+  ///The `reverse` parameter is used to change to icon of the button
+  ///if set to `true` the light mode icon and dark mode icon will be reversed.
   final bool? reverse;
 
   /// This function builds a widget based on the type provided, allowing the user to toggle between dark
