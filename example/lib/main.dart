@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Wrap with [Reactive Themer] Widget
     return ReactiveThemer(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -39,10 +40,13 @@ class HomePage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          //Change Theme Using these [ReactiveSwitch]
           const Center(child: ReactiveSwitch()),
           const SizedBox(height: 20),
+          //Change Theme Using these [ReactiveThemeBtn]
           const Center(child: ReactiveThemeBtn()),
           const SizedBox(height: 20),
+          //Accessible Bool for checking isDarkmode and !isDarkmode
           ReactiveMode.isDarkMode(context)
               ? const Text('is darkmode')
               : const Text('is not darkmode'),
