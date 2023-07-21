@@ -38,18 +38,7 @@ class ReactiveSwitch extends StatefulWidget {
 }
 
 class _ReactiveSwitchState extends State<ReactiveSwitch> {
-  bool value = false;
-
-  @override
-  void initState() {
-    /// The code is delaying the execution of the code inside the `then` callback until the next frame.
-    Future.delayed(Duration.zero).then((_) {
-      /// The line is assigning the value of `isDarkMode`
-      /// property from the `ThemeMutator` instance to the `value` variable.
-      value = ThemeMutator.of(context).isDarkMode;
-    });
-    super.initState();
-  }
+  bool isDarkMode = false;
 
   /// This function builds a switch widget that toggles between dark and light mode and updates the
   /// theme accordingly.
@@ -67,6 +56,7 @@ class _ReactiveSwitchState extends State<ReactiveSwitch> {
     /// `thememutator` and assigning it the value returned by the static method `of` of the
     /// `ThemeMutator` class.
     final thememutator = ThemeMutator.of(context);
+    isDarkMode = thememutator.isDarkMode;
 
     /// The code is returning a `Switch` widget with adaptive behavior.
     return Switch.adaptive(
@@ -78,10 +68,10 @@ class _ReactiveSwitchState extends State<ReactiveSwitch> {
 
       /// The `thumbIcon` property of the `Switch` widget is used to specify the icon that is displayed
       /// on the switch's thumb (the circular button that the user can drag to toggle the switch).
-      thumbIcon: value
+      thumbIcon: isDarkMode
           ? MaterialStateProperty.all(widget.darkmodeIcon)
           : MaterialStateProperty.all(widget.lightModeIcon),
-      value: value,
+      value: isDarkMode,
 
       /// The `onChanged` property of the `Switch` widget is a callback function that is called when the
       /// value of the switch changes. In this case, when the user toggles the switch, the `onChanged`
@@ -91,7 +81,7 @@ class _ReactiveSwitchState extends State<ReactiveSwitch> {
         /// it is updating the value of the `value` variable and calling the `toggleStatus()` method of
         /// the `thememutator` object.
         setState(() {
-          this.value = value;
+          isDarkMode = value;
           thememutator.toggleStatus();
         });
       },

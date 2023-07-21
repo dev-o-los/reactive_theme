@@ -7,7 +7,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: ReactiveSwitch()),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(child: ReactiveSwitch()),
+          SizedBox(height: 20),
+          Center(child: ReactiveThemeBtn())
+        ],
+      ),
     );
   }
 }
