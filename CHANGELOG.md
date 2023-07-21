@@ -1,6 +1,7 @@
 ## 1.2.1 [21-07-2023]
 
 - New ReactiveMode added for easy access of isDarkMode and !isDarkmode added
+- New reverse parameter added to `ReactiveThemeBtn`
 - ReactiveSwitch bug fixed
 
 ## 1.1.1 [14-07-2023]
