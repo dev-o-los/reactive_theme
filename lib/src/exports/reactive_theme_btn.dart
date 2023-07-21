@@ -102,7 +102,18 @@ class ReactiveThemeBtn extends StatelessWidget {
   ///if set to `true` the light mode icon and dark mode icon will be reversed.
   final bool? reverse;
 
+  /// The line `IconData? darkmodeIcon;` is declaring a final variable `darkmodeIcon` of type
+  /// `IconData?`. The `IconData?` type indicates that the variable can either hold a valid `IconData`
+  /// value or be null. This variable is used to store the icon data for the dark mode icon of the
+  /// button. It can be set to any valid `IconData` value, such as `Icons.dark_mode`, or it can be left
+  /// null if no dark mode icon is needed.
   final IconData? darkmodeIcon;
+
+  /// The line `IconData? lightmodeIcon;` is declaring a final variable `lightmodeIcon` of type
+  /// `IconData?`. The `IconData?` type indicates that the variable can either hold a valid `IconData`
+  /// value or be null. This variable is used to store the icon data for the light mode icon of the
+  /// button. It can be set to any valid `IconData` value, such as `Icons.sunny`, or it can be left null
+  /// if no light mode icon is needed.
   final IconData? lightmodeIcon;
 
   /// This function builds a widget based on the type provided, allowing the user to toggle between dark
