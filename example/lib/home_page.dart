@@ -6,13 +6,17 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: ReactiveSwitch()),
-          SizedBox(height: 20),
-          Center(child: ReactiveThemeBtn())
+          const Center(child: ReactiveSwitch()),
+          const SizedBox(height: 20),
+          const Center(child: ReactiveThemeBtn()),
+          const SizedBox(height: 20),
+          ReactiveMode.isDarkMode(context)
+              ? const Text('is darkmode')
+              : const Text('is not darkmode'),
         ],
       ),
     );
