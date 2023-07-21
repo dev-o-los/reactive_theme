@@ -99,7 +99,7 @@ class ReactiveThemeBtn extends StatelessWidget {
   final Widget? child;
 
   ///The `reverse` parameter is used to change to icon of the button
-  ///if set to `true` the light mode icon and dark mode icon will be reversed.
+  ///if set to `true` the light mode icon and dark mode icon will be interchanged.
   final bool? reverse;
 
   /// The line `IconData? darkmodeIcon;` is declaring a final variable `darkmodeIcon` of type
