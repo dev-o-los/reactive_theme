@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
           //Accessible Bool for checking isDarkmode and !isDarkmode
           ReactiveMode.isDarkMode(context)
               ? const Text('is darkmode')
-              : const Text('is not darkmode'),
+              : const Text('is not darkmode changed'),
         ],
       ),
     );
