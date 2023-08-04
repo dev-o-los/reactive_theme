@@ -36,3 +36,5 @@ example/android/
 example/test/
 example/web/
 example/example.iml
+.flutter-plugins
+.flutter-plugins-dependencies
