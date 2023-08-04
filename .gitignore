@@ -28,3 +28,13 @@ migrate_working_dir/
 .dart_tool/
 .packages
 build/
+example/.*
+example/analysis_options.yaml
+example/pubspec.lock
+example/README.md
+example/android/
+example/test/
+example/web/
+example/example.iml
+.flutter-plugins
+.flutter-plugins-dependencies
