@@ -37,7 +37,7 @@ class StateChangerForThemeMutatorState
     /// the `readData()` function until after the current frame is finished rendering. This is done to
     /// ensure that the `readData()` function is called after the widget has been fully initialized and
     /// the context is available.
-    Future.delayed(Duration.zero).then((_) => readData());
+    WidgetsBinding.instance.addPostFrameCallback((_) => readData());
     super.initState();
   }
 
