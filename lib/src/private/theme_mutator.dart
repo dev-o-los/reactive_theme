@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reactive_theme/src/extension/reactive_theme_ext.dart';
+import 'package:reactive_theme/reactive_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// The `StateChangerForThemeMutator` class is a StatefulWidget that manages the state for changing the
@@ -10,7 +10,7 @@ class StateChangerForThemeMutator extends StatefulWidget {
   /// The `final MaterialApp child;` is a property of the `StateChangerForThemeMutator` class. It
   /// represents the child widget that will be wrapped by the `StateChangerForThemeMutator` widget. In
   /// this case, it is the `MaterialApp` widget that will be modified to change the theme mode.
-  final MaterialApp child;
+  final ReactiveApp child;
 
   @override
   State<StateChangerForThemeMutator> createState() =>
@@ -103,9 +103,7 @@ class StateChangerForThemeMutatorState
       /// The line `child: widget.child.themeChanger(themeMode: isDarkMode ? ThemeMode.light :
       /// ThemeMode.dark),` is calling the `themeChanger` method on the `child` property of the
       /// `StateChangerForThemeMutator` widget.
-      child: widget.child.themeChanger(
-        themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
-      ),
+      child: widget.child.call(isDarkMode ? ThemeMode.dark : ThemeMode.light),
     );
   }
 }
