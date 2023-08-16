@@ -33,10 +33,6 @@ class StateChangerForThemeMutatorState
   /// is finished rendering.
   @override
   void initState() {
-    /// The line `Future.delayed(Duration.zero).then((_) => readData());` is delaying the execution of
-    /// the `readData()` function until after the current frame is finished rendering. This is done to
-    /// ensure that the `readData()` function is called after the widget has been fully initialized and
-    /// the context is available.
     WidgetsBinding.instance.addPostFrameCallback((_) => readData());
     super.initState();
   }
@@ -100,9 +96,6 @@ class StateChangerForThemeMutatorState
       /// `ThemeMutator` widget.
       stateWidget: this,
 
-      /// The line `child: widget.child.themeChanger(themeMode: isDarkMode ? ThemeMode.light :
-      /// ThemeMode.dark),` is calling the `themeChanger` method on the `child` property of the
-      /// `StateChangerForThemeMutator` widget.
       child: widget.child.call(isDarkMode ? ThemeMode.dark : ThemeMode.light),
     );
   }
