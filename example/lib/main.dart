@@ -15,11 +15,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //Wrap with [Reactive Themer] Widget
+    // Wrap with [Reactive Themer] Widget
     return ReactiveThemer(
+      // loads the saved thememode.
+      // If null then ThemeMode.system is used
       savedThemeMode: savedThemeMode,
       builder: (reactiveMode) => MaterialApp(
         debugShowCheckedModeBanner: false,
+        //Pass the reactiveMode to the themeMode parameter in order to toggle theme
         themeMode: reactiveMode,
         title: 'Reactive Theme Demo',
         theme: ThemeData(
