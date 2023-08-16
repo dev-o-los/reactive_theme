@@ -1,3 +1,9 @@
+## 2.0.0
+
+- [Breaking Changes]
+  - builder is now required in `Reactive Themer`.
+  - `ReactiveThemeBtn.editable()` has been `depreacted`.
+
 ## 1.2.1 [04-08-2023]
 
 - Package size reduced
