@@ -38,6 +38,8 @@ import 'package:reactive_theme/reactive_theme.dart';
 
 ## Usage
 
+If you want to persist the `Theme` , use the code snippet below.
+
 ```dart
 void main() async {
   // Get the saved thememode here
