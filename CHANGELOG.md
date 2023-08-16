@@ -1,3 +1,21 @@
+## 2.1.0 [16-08-2023]
+
+- New parameter `savedThemeMode` is added to `ReactiveThemer`
+
+  - You may now select whether to display the saved theme or not.
+
+- New method `ReactiveMode.getSavedThemeMode()` is added in order to get the saved themeMode.
+
+- [Changes]
+
+  - `ReactiveThemeBtn.fromScratch()` has been updated
+
+## 2.0.0 [16-08-2023]
+
+- [Breaking Changes]
+  - builder is now required in `Reactive Themer`.
+  - `ReactiveThemeBtn.editable()` has been `depreacted`.
+
 ## 1.2.1 [04-08-2023]
 
 - Package size reduced

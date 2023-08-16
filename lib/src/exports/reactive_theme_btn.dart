@@ -1,28 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:reactive_theme/src/private/constants/constants.dart';
-import 'package:reactive_theme/src/private/helper.dart';
-import 'package:reactive_theme/src/private/theme_mutator.dart';
+import '../private/theme_mutator.dart';
 
 class ReactiveThemeBtn extends StatelessWidget {
-  /// The `ReactiveThemeBtn()` constructor is defining a class named `ReactiveThemeBtn` with some optional
-  /// parameters.
-  const ReactiveThemeBtn({
-    super.key,
-    this.transitionType,
-    this.reverse = false,
-  })  : _type = '',
-        bgColWhenLg = null,
-        bgColWhendk = null,
-        iconColWhenLg = null,
-        iconColWhendk = null,
-        child = null,
-        lightmodeIcon = null,
-        darkmodeIcon = null;
-
   /// The `ReactiveThemeBtn.editable()` constructor is defining a named constructor within the
   /// `ReactiveThemeBtn` class. This constructor allows you to create an instance of `ReactiveThemeBtn`
   /// with specific parameters for an editable button.
-  const ReactiveThemeBtn.editable({
+  const ReactiveThemeBtn({
     super.key,
     this.bgColWhenLg = Colors.white,
     this.bgColWhendk = Colors.black87,
@@ -32,14 +15,16 @@ class ReactiveThemeBtn extends StatelessWidget {
     this.lightmodeIcon = Icons.sunny,
     this.transitionType,
     this.reverse = false,
-  })  : _type = 'editable',
-        child = null;
+  })  : _type = '',
+        child = null,
+        onTap = null;
 
   /// The `ReactiveThemeBtn.fromScratch()` constructor is creating an instance of the
   /// `ReactiveThemeBtn` class with specific parameters for a button created from scratch.
   const ReactiveThemeBtn.fromScratch({
     super.key,
     required this.child,
+    required this.onTap,
   })  : _type = 'fromScratch',
         bgColWhenLg = null,
         bgColWhendk = null,
@@ -116,6 +101,8 @@ class ReactiveThemeBtn extends StatelessWidget {
   /// if no light mode icon is needed.
   final IconData? lightmodeIcon;
 
+  final VoidCallback? onTap;
+
   /// This function builds a widget based on the type provided, allowing the user to toggle between dark
   /// and light mode.
   ///
@@ -134,7 +121,18 @@ class ReactiveThemeBtn extends StatelessWidget {
     /// `thememutator` of type `ThemeMutator` and assigning it the value returned by the `of` method of
     /// the `ThemeMutator` class.
     final thememutator = ThemeMutator.of(context);
-    if (_type == 'editable') {
+    if (_type == 'fromScratch' && child != null) {
+      /// The `GestureDetector` widget is used to detect user gestures on the screen. In this
+      /// case, it is used to detect a tap gesture on the child widget and trigger the
+      /// `toggleStatus()` method of the `thememutator` object when the tap gesture is detected.
+      return GestureDetector(
+        child: child,
+        onTap: () {
+          thememutator.toggleStatus();
+          onTap?.call();
+        },
+      );
+    } else {
       /// The `return Container(...)` code is creating a container widget with a circular shape and an
       /// `IconButton` inside it. The container's background color is determined by the value of
       /// `thememutator.isDarkMode`. If `isDarkMode` is `true`, the background color will be
@@ -175,60 +173,14 @@ class ReactiveThemeBtn extends StatelessWidget {
             child: thememutator.isDarkMode
                 ? Icon(
                     reverse! ? lightmodeIcon : darkmodeIcon,
-                    key: UniqueKey(),
+                    key: ValueKey(1),
                   )
                 : Icon(
                     reverse! ? darkmodeIcon : lightmodeIcon,
-                    key: UniqueKey(),
+                    key: ValueKey(2),
                   ),
           ),
         ),
-      );
-    } else if (_type == 'fromScratch') {
-      /// The `GestureDetector` widget is used to detect user gestures on the screen. In this
-      /// case, it is used to detect a tap gesture on the child widget and trigger the
-      /// `toggleStatus()` method of the `thememutator` object when the tap gesture is detected.
-      return GestureDetector(
-        child: child!,
-        onTap: () => thememutator.toggleStatus(),
-      );
-    } else {
-      return GestureDetector(
-        child: Container(
-          decoration: BoxDecoration(
-            color: Helper.bgiconcol(thememutator.isDarkMode, reverse!),
-            shape: BoxShape.circle,
-          ),
-          padding: const EdgeInsets.all(10.0),
-          child: AnimatedSwitcher(
-            duration: const Duration(seconds: 1),
-            transitionBuilder: (child, animation) => RotationTransition(
-              turns: animation,
-              child: child,
-            ),
-
-            /// The code `thememutator.isDarkMode ? Image.asset('assets/moon-fill.png', package:
-            /// 'reactive_theme', key: UniqueKey(),) : Image.asset('assets/sun-fill.png', package:
-            /// 'reactive_theme', key: UniqueKey(),)` is conditionally rendering an `Image.asset`
-            /// widget based on the value of `thememutator.isDarkMode`.
-            child: thememutator.isDarkMode
-                ? Image.asset(
-                    reverse! ? sunImg : moonImg,
-                    package: pkgname,
-                    key: UniqueKey(),
-                  )
-                : Image.asset(
-                    reverse! ? moonImg : sunImg,
-                    package: pkgname,
-                    key: UniqueKey(),
-                  ),
-          ),
-        ),
-
-        /// The `onTap: () => thememutator.toggleStatus(),` line of code is assigning a callback function
-        /// to the `onTap` property of the `GestureDetector` widget. This callback function is triggered
-        /// when the user taps on the widget.
-        onTap: () => thememutator.toggleStatus(),
       );
     }
   }

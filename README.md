@@ -38,6 +38,17 @@ import 'package:reactive_theme/reactive_theme.dart';
 
 ## Usage
 
+If you want to persist the `Theme` , use the code snippet below.
+
+```dart
+void main() async {
+  // Get the saved thememode here
+  final thememode = await ReactiveMode.getSavedThemeMode();
+  // then pass it to the MyApp()
+  runApp(MyApp(savedThemeMode: thememode));
+}
+```
+
 Wrap the `MaterialApp` widget with `ReactiveThemer` and nothing else.
 
 ⚠️ [Important]
@@ -45,8 +56,15 @@ Wrap the `MaterialApp` widget with `ReactiveThemer` and nothing else.
 `ReactiveThemer` must be the topmost widget in the widget tree
 
 ```dart
+// Wrap with [Reactive Themer] Widget
 ReactiveThemer(
-  child: MaterialApp(
+  // loads the saved thememode.
+  // If null then ThemeMode.system is used
+  savedThemeMode: savedThemeMode,
+  builder: (reactiveMode) => MaterialApp(
+    debugShowCheckedModeBanner: false,
+    //Pass the reactiveMode to the themeMode parameter in order to toggle theme
+    themeMode: reactiveMode,
     title: 'Reactive Theme Demo',
     theme: ThemeData(
       colorScheme: ColorScheme.fromSeed(
@@ -77,10 +95,6 @@ Now you change toggle between dark and light mode easily from anywhere by using
 `ReactiveThemeBtn` or `ReactiveSwitch` Widget.
 
 ## ReactiveThemeBtn
-
-ReactiveThemeBtn has one simple and two named constructors , they are -
-
-- `ReactiveThemeBtn.editable()`
 
 | Parameters     | Description                                                  |
 | -------------- | ------------------------------------------------------------ |
