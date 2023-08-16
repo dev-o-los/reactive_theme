@@ -14,6 +14,10 @@ class ReactiveThemer extends StatelessWidget {
   /// `MaterialApp`. This variable is used to store the child widget that will be wrapped by the
   /// `ReactiveThemer` widget.
   final ReactiveApp builder;
+
+  /// The line `final ThemeMode? savedThemeMode;` is declaring a final variable named `savedThemeMode` of
+  /// type `ThemeMode?`. The `?` indicates that the variable can be nullable, meaning it can have a value
+  /// of `null` in addition to the possible values of `ThemeMode` enum.
   final ThemeMode? savedThemeMode;
 
   /// The build function returns a StateChangerForThemeMutator widget with the child widget as its

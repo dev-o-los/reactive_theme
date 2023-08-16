@@ -14,6 +14,11 @@ class ReactiveMode {
   static bool isDarkMode(BuildContext context) =>
       ThemeMutator.of(context).isDarkMode;
 
+  /// The function retrieves the saved theme mode from shared preferences and returns it as a ThemeMode
+  /// enum value.
+  ///
+  /// Returns:
+  ///   a `Future` object that resolves to a `ThemeMode` value or `null`.
   static Future<ThemeMode?> getSavedThemeMode() async {
     final prefs = await SharedPreferences.getInstance();
     return (prefs.getBool('isdarkmode') ?? false) ? ThemeMode.dark : null;
