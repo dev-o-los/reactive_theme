@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:reactive_theme/reactive_theme.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  //Get the saved thememode here
+  final thememode = await ReactiveMode.getSavedThemeMode();
+  // then pass it to the MyApp()
+  runApp(MyApp(savedThemeMode: thememode));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key, required this.savedThemeMode});
+
+  final ThemeMode? savedThemeMode;
 
   @override
   Widget build(BuildContext context) {
     //Wrap with [Reactive Themer] Widget
     return ReactiveThemer(
+      savedThemeMode: savedThemeMode,
       builder: (reactiveMode) => MaterialApp(
         debugShowCheckedModeBanner: false,
         themeMode: reactiveMode,

@@ -8,12 +8,13 @@ typedef ReactiveApp = Widget Function(ThemeMode reactiveMode);
 class ReactiveThemer extends StatelessWidget {
   /// The line `const ReactiveThemer({super.key, required this.child});` is defining a constructor for
   /// the `ReactiveThemer` class.
-  const ReactiveThemer({super.key, required this.builder});
+  const ReactiveThemer({super.key, required this.builder, this.savedThemeMode});
 
   /// The line `final MaterialApp child;` is declaring a final variable named `child` of type
   /// `MaterialApp`. This variable is used to store the child widget that will be wrapped by the
   /// `ReactiveThemer` widget.
   final ReactiveApp builder;
+  final ThemeMode? savedThemeMode;
 
   /// The build function returns a StateChangerForThemeMutator widget with the child widget as its
   /// child.
@@ -23,6 +24,8 @@ class ReactiveThemer extends StatelessWidget {
   /// information about the current build context, such as the theme, media queries, and navigation. It
   /// is typically passed down from the parent widget to its child widgets.
   @override
-  Widget build(BuildContext context) =>
-      StateChangerForThemeMutator(child: builder);
+  Widget build(BuildContext context) => StateChangerForThemeMutator(
+        child: builder,
+        savedThemeMode: savedThemeMode ?? ThemeMode.system,
+      );
 }
