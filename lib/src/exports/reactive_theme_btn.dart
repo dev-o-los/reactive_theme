@@ -16,13 +16,15 @@ class ReactiveThemeBtn extends StatelessWidget {
     this.transitionType,
     this.reverse = false,
   })  : _type = '',
-        child = null;
+        child = null,
+        onTap = null;
 
   /// The `ReactiveThemeBtn.fromScratch()` constructor is creating an instance of the
   /// `ReactiveThemeBtn` class with specific parameters for a button created from scratch.
   const ReactiveThemeBtn.fromScratch({
     super.key,
     required this.child,
+    required this.onTap,
   })  : _type = 'fromScratch',
         bgColWhenLg = null,
         bgColWhendk = null,
@@ -99,6 +101,8 @@ class ReactiveThemeBtn extends StatelessWidget {
   /// if no light mode icon is needed.
   final IconData? lightmodeIcon;
 
+  final VoidCallback? onTap;
+
   /// This function builds a widget based on the type provided, allowing the user to toggle between dark
   /// and light mode.
   ///
@@ -123,7 +127,10 @@ class ReactiveThemeBtn extends StatelessWidget {
       /// `toggleStatus()` method of the `thememutator` object when the tap gesture is detected.
       return GestureDetector(
         child: child,
-        onTap: () => thememutator.toggleStatus(),
+        onTap: () {
+          thememutator.toggleStatus();
+          onTap?.call();
+        },
       );
     } else {
       /// The `return Container(...)` code is creating a container widget with a circular shape and an
