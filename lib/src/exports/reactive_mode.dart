@@ -23,4 +23,13 @@ class ReactiveMode {
     final prefs = await SharedPreferences.getInstance();
     return (prefs.getBool('isdarkmode') ?? false) ? ThemeMode.dark : null;
   }
+
+  /// The function toggles the theme status in a Flutter app.
+  ///
+  /// Args:
+  ///   context (BuildContext): The context parameter is an object that provides access to various
+  /// information about the current application's state, such as the theme, widget tree, and navigation
+  /// stack. It is typically passed down from the parent widget to its children.
+  static void toogleTheme(BuildContext context) =>
+      ThemeMutator.of(context).toggleStatus();
 }
