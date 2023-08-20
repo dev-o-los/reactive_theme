@@ -1,3 +1,12 @@
+## 2.2.0 [20-08-2023]
+
+- New `toogleTheme()` method added in `ReactiveMode` to easily toogle between themes.
+
+- Docs Updated
+
+- [Changes]
+  - The `ReactiveThemeBtn.fromScratch()` has been deprecated
+
 ## 2.1.0 [16-08-2023]
 
 - New parameter `savedThemeMode` is added to `ReactiveThemer`
